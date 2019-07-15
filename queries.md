@@ -12,9 +12,11 @@ where supplierId = 11
 
 ## List first 10 orders ever places, descending by the order date
 
-SELECT \* FROM [Orders]
-order by orderdate asc
-limit 10
+SELECT _
+FROM (SELECT DISTINCT _
+FROM [Orders]
+LIMIT 10) dt
+order by OrderDate desc
 
 ## Find all customers that live in London, Madrid, or Brazil
 
